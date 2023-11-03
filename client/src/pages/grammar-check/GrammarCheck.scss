@@ -1,0 +1,25 @@
+.grammar-check {
+  height: 89vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .provider {
+    margin-bottom: 30px;
+  }
+  .text-editor {
+    padding: 10px;
+    border: 2px solid black;
+    width: 65%;
+    height: 40%;
+    background-color: white;
+    font-family: 'Inter';
+    font-size: large;
+    font-weight: 400;
+  }
+  .error-count {
+    margin-top: 30px;
+    width: fit-content;
+  }
+}
