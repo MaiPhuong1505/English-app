@@ -25,10 +25,10 @@ const Home = () => {
         <Grid container className="home-inner">
           <Grid item xs={8}>
             <Typography className="brand-home" color="primary" variant="h3">
-              QuizNow
+              FunEnglish
             </Typography>
             <Typography className="slogan" color="primary">
-              Study and Play with QuizNow
+              Study and Play with FunEnglish
             </Typography>
             <Box sx={{ marginTop: 4, '& button': { mr: 3, width: '155px', height: '55px', fontSize: 'large' } }}>
               <Button variant="contained">Get Started</Button>
