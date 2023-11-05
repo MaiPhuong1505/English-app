@@ -48,14 +48,12 @@ const Header = () => {
           {user.token ? (
             <li>
               <NavLink exact="true" to="/profile" className={({ isActive }) => (isActive ? 'active' : undefined)}>
-                {' '}
                 Profile
               </NavLink>
             </li>
           ) : (
             <li>
               <NavLink exact="true" to="/playing" style={({ isActive }) => (isActive ? 'active' : undefined)}>
-                {' '}
                 Playing quiz
               </NavLink>
             </li>

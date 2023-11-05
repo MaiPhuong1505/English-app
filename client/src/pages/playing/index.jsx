@@ -146,7 +146,7 @@ const Playing = () => {
     socket.on('Next_question_response_for_player', (data) => {
       setProgress(data.progress);
       console.log('data.progress in next question', data.progress);
-
+      setResult({});
       setCurrentQuestion(questionList[data.questionIndex]);
       setCurrentQuestionIndex(data.questionIndex);
       console.log('questionList[data.questionIndex]', questionList[data.questionIndex]);
