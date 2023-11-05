@@ -9,13 +9,25 @@ import { Server } from 'socket.io';
 import socketServer from './socketServer.js';
 import historyRouter from './routes/historyRouter.js';
 import grammarRouter from './routes/grammarRouter.js';
-
+import path from 'path';
 // import cookieParser from 'cookie-parser';
 // const domain = process.env.DOMAIN || 'http://localhost:3000';
 const corsOptions = {
   origin: '*',
 };
 const app = express();
+const __dirname = path.dirname('');
+const buildPath = path.join(__dirname, '../client/build');
+
+app.use(express.static(buildPath));
+
+app.get('/*', (req, res) => {
+  res.sendFile(path.join(__dirname, '../client/build/index.html'), (err) => {
+    if (err) {
+      res.status(500).send(err);
+    }
+  });
+});
 
 const httpServer = createServer();
 const io = new Server(httpServer, {
