@@ -14,6 +14,8 @@ import path from 'path';
 // const domain = process.env.DOMAIN || 'http://localhost:3000';
 const corsOptions = {
   origin: '*',
+  methods: 'GET, POST, PUT, DELETE',
+  allowedHeaders: 'Content-Type, Authorization',
 };
 const app = express();
 const __dirname = path.dirname('');
@@ -39,20 +41,11 @@ io.on('connection', (socket) => {
 });
 
 app.use(express.json());
-app.use(cors(corsOptions));
 
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  next();
-});
-// app.use(cookieParser);
-
-app.use('/api', userRouter);
-app.use('/api', quizRouter);
-app.use('/api', questionRouter);
-app.use('/api', historyRouter);
+app.use('/api', cors(corsOptions), userRouter);
+app.use('/api', cors(corsOptions), quizRouter);
+app.use('/api', cors(corsOptions), questionRouter);
+app.use('/api', cors(corsOptions), historyRouter);
 app.use('/sapling/', grammarRouter);
 
 httpServer.listen(5001, () => {
