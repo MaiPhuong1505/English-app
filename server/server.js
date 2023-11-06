@@ -28,6 +28,7 @@ io.on('connection', (socket) => {
 
 app.use(express.json());
 app.use(cors(corsOptions));
+app.options('*', cors());
 // app.use(cookieParser);
 
 app.use('/api', userRouter);
